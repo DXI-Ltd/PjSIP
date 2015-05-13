@@ -13,10 +13,8 @@
 		226980461B034FC200A15C4E /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 226980451B034FC200A15C4E /* libicucore.dylib */; };
 		226980491B0350B600A15C4E /* DXIPJSipManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 226980481B0350B600A15C4E /* DXIPJSipManager.m */; };
 		2269804A1B03517700A15C4E /* DXIPJSipManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 226980471B0350B600A15C4E /* DXIPJSipManager.h */; };
-		2269804C1B03518F00A15C4E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2269804B1B03518F00A15C4E /* AVFoundation.framework */; };
 		2269804E1B03519800A15C4E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2269804D1B03519800A15C4E /* Security.framework */; };
 		226980501B0351A100A15C4E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2269804F1B0351A100A15C4E /* CFNetwork.framework */; };
-		226980521B0351A800A15C4E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226980511B0351A800A15C4E /* AudioToolbox.framework */; };
 		226980551B03520300A15C4E /* libg7221codec-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 226980191B034FAD00A15C4E /* libg7221codec-arm-apple-darwin9.a */; };
 		226980561B03520300A15C4E /* libgsmcodec-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2269801A1B034FAD00A15C4E /* libgsmcodec-arm-apple-darwin9.a */; };
 		226980571B03520300A15C4E /* libilbccodec-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2269801B1B034FAD00A15C4E /* libilbccodec-arm-apple-darwin9.a */; };
@@ -382,10 +380,8 @@
 		226980451B034FC200A15C4E /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		226980471B0350B600A15C4E /* DXIPJSipManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXIPJSipManager.h; sourceTree = "<group>"; };
 		226980481B0350B600A15C4E /* DXIPJSipManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXIPJSipManager.m; sourceTree = "<group>"; };
-		2269804B1B03518F00A15C4E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2269804D1B03519800A15C4E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2269804F1B0351A100A15C4E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		226980511B0351A800A15C4E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -414,10 +410,8 @@
 				226980671B03520300A15C4E /* libresample-arm-apple-darwin9.a in Frameworks */,
 				226980681B03520300A15C4E /* libspeex-arm-apple-darwin9.a in Frameworks */,
 				226980691B03520300A15C4E /* libsrtp-arm-apple-darwin9.a in Frameworks */,
-				226980521B0351A800A15C4E /* AudioToolbox.framework in Frameworks */,
 				226980501B0351A100A15C4E /* CFNetwork.framework in Frameworks */,
 				2269804E1B03519800A15C4E /* Security.framework in Frameworks */,
-				2269804C1B03518F00A15C4E /* AVFoundation.framework in Frameworks */,
 				226980461B034FC200A15C4E /* libicucore.dylib in Frameworks */,
 				226980441B034FBB00A15C4E /* libz.dylib in Frameworks */,
 			);
@@ -458,10 +452,8 @@
 			isa = PBXGroup;
 			children = (
 				226980531B0351B400A15C4E /* pjsip */,
-				226980511B0351A800A15C4E /* AudioToolbox.framework */,
 				2269804F1B0351A100A15C4E /* CFNetwork.framework */,
 				2269804D1B03519800A15C4E /* Security.framework */,
-				2269804B1B03518F00A15C4E /* AVFoundation.framework */,
 				226980451B034FC200A15C4E /* libicucore.dylib */,
 				226980431B034FBB00A15C4E /* libz.dylib */,
 			);
