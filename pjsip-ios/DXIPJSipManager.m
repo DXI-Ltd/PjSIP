@@ -79,8 +79,8 @@ static pjsua_call_id call_id;
         self.contactCentreNumber = @"3851000";
         self.agentNumber = @"501406";
         self.agentPasscode = @"501406";
-        self.sipDomain = @"sip.easycontactnow.com";
-        self.sipUser = @"dxi";
+        self.sipHost = @"sip.easycontactnow.com";
+        self.sipUsername = @"dxi";
         self.sipPasscode = @"dxi";
         
     }
@@ -111,8 +111,8 @@ static pjsua_call_id call_id;
     }
     
     /* If URL is a valid SIP URL */
-    //char *sipUrl = [DXIConvertionUtils cStringFromNSString:[NSString stringWithFormat:@"sip:%@@%@", self.contactCentreNumber, self.sipDomain]];
-    char *sipUrl = [self cStringFromNSString:[NSString stringWithFormat:@"%@",@"sip:3851000@sip.easycontactnow.com"]];
+    char *sipUrl = [self cStringFromNSString:[NSString stringWithFormat:@"sip:%@@%@", self.contactCentreNumber, self.sipHost]];
+    //char *sipUrl = [self cStringFromNSString:[NSString stringWithFormat:@"%@",@"sip:3851000@sip.easycontactnow.com"]];
     status = pjsua_verify_url(sipUrl);
     if (status != PJ_SUCCESS) {
         NSLog(@"%s - %d @status = pjsua_verify_url(%s)\nstatus = %d", __PRETTY_FUNCTION__, __LINE__, sipUrl, status);
@@ -160,21 +160,21 @@ static pjsua_call_id call_id;
     
     /* Register to SIP server by creating SIP account. */
     pjsua_acc_config_default(&acc_cfg);
-    //char *sipID = [DXIConvertionUtils cStringFromNSString:[NSString stringWithFormat:@"sip:%@@%@", self.sipUser, self.sipDomain]];
-    char *sipID = [self cStringFromNSString:[NSString stringWithFormat:@"%@",@"sip:dxi@sip.easycontactnow.com"]];
+    char *sipID = [self cStringFromNSString:[NSString stringWithFormat:@"sip:%@@%@", self.sipUsername, self.sipHost]];
+    //char *sipID = [self cStringFromNSString:[NSString stringWithFormat:@"%@",@"sip:dxi@sip.easycontactnow.com"]];
     
     //acc_cfg.id = pj_str("sip:" SIP_USER "@" SIP_DOMAIN);
     acc_cfg.id = pj_str(sipID);
     
-    //char *regUri = [DXIConvertionUtils cStringFromNSString:[NSString stringWithFormat:@"sip:%@", self.sipDomain]];
-    char *regUri = [self cStringFromNSString:[NSString stringWithFormat:@"%@",@"sip:sip.easycontactnow.com"]];
+    char *regUri = [self cStringFromNSString:[NSString stringWithFormat:@"sip:%@", self.sipHost]];
+    //char *regUri = [self cStringFromNSString:[NSString stringWithFormat:@"%@",@"sip:sip.easycontactnow.com"]];
     acc_cfg.reg_uri = pj_str(regUri);
     acc_cfg.cred_count = 1;
     acc_cfg.cred_info[0].realm = pj_str("*");
     acc_cfg.cred_info[0].scheme = pj_str("Digest");
     acc_cfg.cred_info[0].data_type = PJSIP_CRED_DATA_PLAIN_PASSWD;
     acc_cfg.cred_info[0].data = pj_str([self cStringFromNSString:self.sipPasscode]);
-    acc_cfg.cred_info[0].username = pj_str([self cStringFromNSString:self.sipUser]);
+    acc_cfg.cred_info[0].username = pj_str([self cStringFromNSString:self.sipUsername]);
     
     status = pjsua_acc_add(&acc_cfg, PJ_SUCCESS, &acc_id);
     if (status != PJ_SUCCESS) {
@@ -207,8 +207,8 @@ static pjsua_call_id call_id;
         agentPassword = [NSString stringWithFormat:@"0%@", agentPassword];
     }
     //char *sipUrl = [DXIConvertionUtils cStringFromNSString:[NSString stringWithFormat:@"sip:%@@%@", self.sipCredentials.easycallContactCentreNumber, self.sipCredentials.sipDomain]];
-    //char *sipUrl = [DXIConvertionUtils cStringFromNSString:[NSString stringWithFormat:@"sip:485%@%@@%@", self.agentNumber, self.agentPasscode, self.sipDomain]];
-    char *sipUrl = [self cStringFromNSString:[NSString stringWithFormat:@"%@",@"sip:485501406501406@sip.easycontactnow.com"]];
+    char *sipUrl = [self cStringFromNSString:[NSString stringWithFormat:@"sip:485%@%@@%@", self.agentNumber, self.agentPasscode, self.sipHost]];
+    //char *sipUrl = [self cStringFromNSString:[NSString stringWithFormat:@"%@",@"sip:485501406501406@sip.easycontactnow.com"]];
     
     /* Make call to the URL. */
     pj_str_t uri = pj_str(sipUrl);
@@ -425,8 +425,8 @@ static void on_call_media_state(pjsua_call_id call_id) {
     
     [description appendFormat:@"<%@>\n", self.class];
     [description appendFormat:@"    <sipState = %@/>\n", self.sipState];
-    [description appendFormat:@"    <sipDomain = %@/\n>", self.sipDomain];
-    [description appendFormat:@"    <sipUser = %@/\n>", self.sipUser];
+    [description appendFormat:@"    <sipDomain = %@/\n>", self.sipHost];
+    [description appendFormat:@"    <sipUser = %@/\n>", self.sipUsername];
     [description appendFormat:@"</%@>\n", self.class];
     
     return description;
