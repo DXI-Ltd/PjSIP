@@ -33,8 +33,6 @@ static pjsua_acc_info acc_info;
 static pjsua_call_info call_info;
 static pjsua_call_id call_id;
 
-
-
 @interface DXIPJSipManager()
 @property (atomic) BOOL isSoundEnabled;
 @property (atomic) BOOL isInited;
@@ -55,8 +53,7 @@ static pjsua_call_id call_id;
             _instance = [[DXIPJSipManager alloc] initPrivate];
         }
     });
-    // Update Credentials
-    //_instance.sipCredentials = [[DXIPreferencesManager getInstance] getSipCredentials];
+
     return _instance;
 }
 
@@ -97,9 +94,7 @@ static pjsua_call_id call_id;
     self.statusTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkSoundStatus) userInfo:nil repeats:YES];
     [self.statusTimer fire];
     [self unregisterFromSipServer];
-    
-    //self.sipCredentials = [[DXIPreferencesManager getInstance] getSipCredentials];
-    //DDLogDebug(@"Calling cc with number: %@\nAgent number: %@\nAgend passcode: %@", self.sipCredentials.easycallContactCentreNumber, self.sipCredentials.easycallAgentNumber, self.sipCredentials.easycallAgentPassword);
+
     self.sipState = kSIP_STATE_REGISTERING;
     
     /* Create pjsua first! */
@@ -112,7 +107,6 @@ static pjsua_call_id call_id;
     
     /* If URL is a valid SIP URL */
     char *sipUrl = [self cStringFromNSString:[NSString stringWithFormat:@"sip:%@@%@", self.contactCentreNumber, self.sipHost]];
-    //char *sipUrl = [self cStringFromNSString:[NSString stringWithFormat:@"%@",@"sip:3851000@sip.easycontactnow.com"]];
     status = pjsua_verify_url(sipUrl);
     if (status != PJ_SUCCESS) {
         NSLog(@"%s - %d @status = pjsua_verify_url(%s)\nstatus = %d", __PRETTY_FUNCTION__, __LINE__, sipUrl, status);
@@ -137,7 +131,6 @@ static pjsua_call_id call_id;
         [self failWithMessage:[NSString stringWithFormat:@"Error in pjsua_init(): %d", status]];
         return;
     }
-    
     self.isInited = YES;
     
     /* Add UDP transport. */
@@ -161,13 +154,9 @@ static pjsua_call_id call_id;
     /* Register to SIP server by creating SIP account. */
     pjsua_acc_config_default(&acc_cfg);
     char *sipID = [self cStringFromNSString:[NSString stringWithFormat:@"sip:%@@%@", self.sipUsername, self.sipHost]];
-    //char *sipID = [self cStringFromNSString:[NSString stringWithFormat:@"%@",@"sip:dxi@sip.easycontactnow.com"]];
-    
-    //acc_cfg.id = pj_str("sip:" SIP_USER "@" SIP_DOMAIN);
     acc_cfg.id = pj_str(sipID);
     
     char *regUri = [self cStringFromNSString:[NSString stringWithFormat:@"sip:%@", self.sipHost]];
-    //char *regUri = [self cStringFromNSString:[NSString stringWithFormat:@"%@",@"sip:sip.easycontactnow.com"]];
     acc_cfg.reg_uri = pj_str(regUri);
     acc_cfg.cred_count = 1;
     acc_cfg.cred_info[0].realm = pj_str("*");
@@ -190,10 +179,7 @@ static pjsua_call_id call_id;
 }
 
 - (void)failWithMessage:(NSString *)message {
-    //DXISipResponse *error = [DXISipResponse new];
-    //error.errorMessage = message;
     [self unregisterFromSipServer];
-    //[self.delegate onRegisterToSipServerAndLogAgentDidFailWithResponse:error];
 }
 
 - (void)callContactCenter {
@@ -206,17 +192,14 @@ static pjsua_call_id call_id;
     while(agentPassword.length < 6) {
         agentPassword = [NSString stringWithFormat:@"0%@", agentPassword];
     }
-    //char *sipUrl = [DXIConvertionUtils cStringFromNSString:[NSString stringWithFormat:@"sip:%@@%@", self.sipCredentials.easycallContactCentreNumber, self.sipCredentials.sipDomain]];
+   
     char *sipUrl = [self cStringFromNSString:[NSString stringWithFormat:@"sip:485%@%@@%@", self.agentNumber, self.agentPasscode, self.sipHost]];
-    //char *sipUrl = [self cStringFromNSString:[NSString stringWithFormat:@"%@",@"sip:485501406501406@sip.easycontactnow.com"]];
-    
     /* Make call to the URL. */
     pj_str_t uri = pj_str(sipUrl);
     status = pjsua_call_make_call(acc_id, &uri, 0, NULL, NULL, NULL);
     if (status != PJ_SUCCESS) {
         NSLog(@"%s - %d @pjsua_call_make_call(acc_id, &[%s], 0, NULL, NULL, NULL)\nstatus = %d", __PRETTY_FUNCTION__, __LINE__, sipUrl, status);
         [self failWithMessage:[NSString stringWithFormat:@"Error calling contact centre: %d", status]];
-        //[self disableSound];
         return;
     }
     
