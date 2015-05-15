@@ -9,11 +9,12 @@
 
 #import "DXIPJSipManager.h"
 
-static int kPJSUA_LOG_LEVEL = 1;
-
+// pjsip
 #import <pjsua-lib/pjsua.h>
 #import <pjsua-lib/pjsua_internal.h>
 #import <pjsip/sip_msg.h>
+
+static int kPJSUA_LOG_LEVEL = 1;
 
 // Singletone instance of this class
 DXIPJSipManager *_instance;
