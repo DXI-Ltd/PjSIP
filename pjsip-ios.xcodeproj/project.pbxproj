@@ -11,8 +11,6 @@
 		22697EBE1B034E2A00A15C4E /* pjsip_ios.m in Sources */ = {isa = PBXBuildFile; fileRef = 22697EBD1B034E2A00A15C4E /* pjsip_ios.m */; };
 		226980441B034FBB00A15C4E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 226980431B034FBB00A15C4E /* libz.dylib */; };
 		226980461B034FC200A15C4E /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 226980451B034FC200A15C4E /* libicucore.dylib */; };
-		226980491B0350B600A15C4E /* DXIPJSipManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 226980481B0350B600A15C4E /* DXIPJSipManager.m */; };
-		2269804A1B03517700A15C4E /* DXIPJSipManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 226980471B0350B600A15C4E /* DXIPJSipManager.h */; };
 		2269804E1B03519800A15C4E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2269804D1B03519800A15C4E /* Security.framework */; };
 		226980501B0351A100A15C4E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2269804F1B0351A100A15C4E /* CFNetwork.framework */; };
 		226980551B03520300A15C4E /* libg7221codec-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 226980191B034FAD00A15C4E /* libg7221codec-arm-apple-darwin9.a */; };
@@ -45,7 +43,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				2269804A1B03517700A15C4E /* DXIPJSipManager.h in CopyFiles */,
 				22697EBC1B034E2A00A15C4E /* pjsip_ios.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,8 +375,6 @@
 		2269802D1B034FAD00A15C4E /* libsrtp-arm-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libsrtp-arm-apple-darwin9.a"; path = "pjsip/all_libs/libsrtp-arm-apple-darwin9.a"; sourceTree = "<group>"; };
 		226980431B034FBB00A15C4E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		226980451B034FC200A15C4E /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		226980471B0350B600A15C4E /* DXIPJSipManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXIPJSipManager.h; sourceTree = "<group>"; };
-		226980481B0350B600A15C4E /* DXIPJSipManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXIPJSipManager.m; sourceTree = "<group>"; };
 		2269804D1B03519800A15C4E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2269804F1B0351A100A15C4E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -442,8 +437,6 @@
 			children = (
 				22697EBB1B034E2A00A15C4E /* pjsip_ios.h */,
 				22697EBD1B034E2A00A15C4E /* pjsip_ios.m */,
-				226980471B0350B600A15C4E /* DXIPJSipManager.h */,
-				226980481B0350B600A15C4E /* DXIPJSipManager.m */,
 			);
 			path = "pjsip-ios";
 			sourceTree = "<group>";
@@ -1056,7 +1049,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				226980491B0350B600A15C4E /* DXIPJSipManager.m in Sources */,
 				22697EBE1B034E2A00A15C4E /* pjsip_ios.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1215,6 +1207,7 @@
 				22697ECE1B034E2A00A15C4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

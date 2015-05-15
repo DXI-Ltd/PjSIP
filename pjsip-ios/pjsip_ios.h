@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DXIPJSipManager.h"
+#import <pjsua-lib/pjsua.h>
+#import <pjsua-lib/pjsua_internal.h>
+#import <pjsip/sip_msg.h>
 
 @interface pjsip_ios : NSObject
 
