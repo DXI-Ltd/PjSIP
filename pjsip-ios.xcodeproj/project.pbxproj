@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22031A681B05F2BA002787DD /* DXIPJSipManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22031A671B05F2BA002787DD /* DXIPJSipManager.m */; };
-		22031A721B05F357002787DD /* DXIPJSipManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 22031A661B05F2BA002787DD /* DXIPJSipManager.h */; };
+		22031A791B05F745002787DD /* DXIPJSipManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22031A781B05F745002787DD /* DXIPJSipManager.m */; };
+		22031A7E1B05F881002787DD /* DXIPJSipManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 22031A771B05F745002787DD /* DXIPJSipManager.h */; };
+		22031A821B05FAD5002787DD /* pjsua.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 226980081B034F7C00A15C4E /* pjsua.h */; };
+		22031A831B05FAD5002787DD /* pjsua_internal.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 226980091B034F7C00A15C4E /* pjsua_internal.h */; };
+		22031A841B05FAE1002787DD /* sip_msg.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 22697FE01B034F7C00A15C4E /* sip_msg.h */; };
 		22697EBC1B034E2A00A15C4E /* pjsip_ios.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 22697EBB1B034E2A00A15C4E /* pjsip_ios.h */; };
 		22697EBE1B034E2A00A15C4E /* pjsip_ios.m in Sources */ = {isa = PBXBuildFile; fileRef = 22697EBD1B034E2A00A15C4E /* pjsip_ios.m */; };
 		226980441B034FBB00A15C4E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 226980431B034FBB00A15C4E /* libz.dylib */; };
@@ -45,7 +48,10 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				22031A721B05F357002787DD /* DXIPJSipManager.h in CopyFiles */,
+				22031A841B05FAE1002787DD /* sip_msg.h in CopyFiles */,
+				22031A821B05FAD5002787DD /* pjsua.h in CopyFiles */,
+				22031A831B05FAD5002787DD /* pjsua_internal.h in CopyFiles */,
+				22031A7E1B05F881002787DD /* DXIPJSipManager.h in CopyFiles */,
 				22697EBC1B034E2A00A15C4E /* pjsip_ios.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,8 +59,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		22031A661B05F2BA002787DD /* DXIPJSipManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXIPJSipManager.h; sourceTree = "<group>"; };
-		22031A671B05F2BA002787DD /* DXIPJSipManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXIPJSipManager.m; sourceTree = "<group>"; };
+		22031A771B05F745002787DD /* DXIPJSipManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXIPJSipManager.h; sourceTree = "<group>"; };
+		22031A781B05F745002787DD /* DXIPJSipManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXIPJSipManager.m; sourceTree = "<group>"; };
 		22697EB81B034E2A00A15C4E /* libpjsip-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libpjsip-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22697EBB1B034E2A00A15C4E /* pjsip_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pjsip_ios.h; sourceTree = "<group>"; };
 		22697EBD1B034E2A00A15C4E /* pjsip_ios.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pjsip_ios.m; sourceTree = "<group>"; };
@@ -440,8 +446,8 @@
 		22697EBA1B034E2A00A15C4E /* pjsip-ios */ = {
 			isa = PBXGroup;
 			children = (
-				22031A661B05F2BA002787DD /* DXIPJSipManager.h */,
-				22031A671B05F2BA002787DD /* DXIPJSipManager.m */,
+				22031A771B05F745002787DD /* DXIPJSipManager.h */,
+				22031A781B05F745002787DD /* DXIPJSipManager.m */,
 				22697EBB1B034E2A00A15C4E /* pjsip_ios.h */,
 				22697EBD1B034E2A00A15C4E /* pjsip_ios.m */,
 			);
@@ -1056,7 +1062,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22031A681B05F2BA002787DD /* DXIPJSipManager.m in Sources */,
+				22031A791B05F745002787DD /* DXIPJSipManager.m in Sources */,
 				22697EBE1B034E2A00A15C4E /* pjsip_ios.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

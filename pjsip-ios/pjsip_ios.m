@@ -10,4 +10,13 @@
 
 @implementation pjsip_ios
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
 @end
