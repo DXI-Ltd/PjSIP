@@ -436,7 +436,7 @@ static void on_call_media_state(pjsua_call_id call_id) {
         return NO;
     }
     
-    int len = strlen(a);
+    int len = (int)strlen(a);
     if(len != strlen(b)) {
         return NO;
     }
