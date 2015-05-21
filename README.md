@@ -1,7 +1,7 @@
 # pjsip-ios
 
 This project builds a iOS Static Library that provides sip connection functionalities. It exposes the DXIPJSipManager class that cam be used to connect an iOS App to a sip server.
-* [Repo] 
+
 
 ## 1 - Adding to a Project
 
@@ -45,6 +45,5 @@ Replace all the old sources and libs in the pjsip-ios project "Frameworks" folde
 * [PJSIP]
 * [pjsip-lib-generator] 
 
-[Repo]:https://github.com/otaviokz/pjsip
 [PJSIP]:http://www.pjsip.org/
 [pjsip-lib-generator]:https://github.com/otaviokz/pjsipbrowse
